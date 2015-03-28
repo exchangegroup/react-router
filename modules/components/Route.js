@@ -23,7 +23,7 @@ var RouteHandler = require('./RouteHandler');
  *       <Route name="about" handler={About}/>
  *     </Route>
  *   ];
- *   
+ *
  *   Router.run(routes, function (Handler) {
  *     React.render(<Handler/>, document.body);
  *   });
@@ -63,7 +63,8 @@ Route.propTypes = {
   name: PropTypes.string,
   path: PropTypes.string,
   handler: PropTypes.func,
-  ignoreScrollBehavior: PropTypes.bool
+  ignoreScrollBehavior: PropTypes.bool,
+  data: PropTypes.any,
 };
 
 Route.defaultProps = {

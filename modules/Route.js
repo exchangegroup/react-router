@@ -93,6 +93,7 @@ class Route {
       options.isNotFound,
       options.onEnter,
       options.onLeave,
+      options.data,
       options.handler
     );
 
@@ -173,7 +174,7 @@ class Route {
     );
   }
 
-  constructor(name, path, ignoreScrollBehavior, isDefault, isNotFound, onEnter, onLeave, handler) {
+  constructor(name, path, ignoreScrollBehavior, isDefault, isNotFound, onEnter, onLeave, data, handler) {
     this.name = name;
     this.path = path;
     this.paramNames = PathUtils.extractParamNames(this.path);
@@ -182,6 +183,7 @@ class Route {
     this.isNotFound = !!isNotFound;
     this.onEnter = onEnter;
     this.onLeave = onLeave;
+    this.data = data;
     this.handler = handler;
   }
 
