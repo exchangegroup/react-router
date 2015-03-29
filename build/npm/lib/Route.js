@@ -12,7 +12,7 @@ var PathUtils = require("./PathUtils");
 var _currentRoute;
 
 var Route = (function () {
-  function Route(name, path, ignoreScrollBehavior, isDefault, isNotFound, onEnter, onLeave, handler) {
+  function Route(name, path, ignoreScrollBehavior, isDefault, isNotFound, onEnter, onLeave, data, handler) {
     _classCallCheck(this, Route);
 
     this.name = name;
@@ -23,6 +23,7 @@ var Route = (function () {
     this.isNotFound = !!isNotFound;
     this.onEnter = onEnter;
     this.onLeave = onLeave;
+    this.data = data;
     this.handler = handler;
   }
 
@@ -125,7 +126,7 @@ var Route = (function () {
 
         if (options.isNotFound && !/\*$/.test(path)) path += "*"; // Auto-append * to the path of not found routes.
 
-        var route = new Route(name, path, options.ignoreScrollBehavior, options.isDefault, options.isNotFound, options.onEnter, options.onLeave, options.handler);
+        var route = new Route(name, path, options.ignoreScrollBehavior, options.isDefault, options.isNotFound, options.onEnter, options.onLeave, options.data, options.handler);
 
         if (parentRoute) {
           if (route.isDefault) {
